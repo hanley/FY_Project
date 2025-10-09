@@ -1,0 +1,2 @@
+https://github.com/hanley/FY_Project/raw/refs/heads/main/Ransomeware.pcap
+https://github.com/hanley/FY_Project/raw/refs/heads/main/WebEK.pcap
